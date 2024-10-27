@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/MinhTriet-Cinema/static/css/main.a6886b33.css",
+    "main.js": "/MinhTriet-Cinema/static/js/main.b7dc5862.js",
+    "static/js/453.e6e42e86.chunk.js": "/MinhTriet-Cinema/static/js/453.e6e42e86.chunk.js",
+    "index.html": "/MinhTriet-Cinema/index.html",
+    "main.a6886b33.css.map": "/MinhTriet-Cinema/static/css/main.a6886b33.css.map",
+    "main.b7dc5862.js.map": "/MinhTriet-Cinema/static/js/main.b7dc5862.js.map",
+    "453.e6e42e86.chunk.js.map": "/MinhTriet-Cinema/static/js/453.e6e42e86.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a6886b33.css",
+    "static/js/main.b7dc5862.js"
+  ]
+}
