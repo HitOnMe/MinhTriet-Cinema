@@ -14,8 +14,8 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path='/admin' element={<Admin />} />
-      <Route path='/home' element={<HomeTemplate />} />
-      <Route path='/' element={<TicketRoom />} />
+      <Route path='/' element={<HomeTemplate />} />
+      <Route path='/ticket' element={<TicketRoom />} />
       <Route path="/Template/Ticket/ticket" element={<Ticket />} />
     </Routes>
   </BrowserRouter>
