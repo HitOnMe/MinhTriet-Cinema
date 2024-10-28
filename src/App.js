@@ -1,25 +1,31 @@
-
-import './App.css';
-import {Router} from 'react-router'
-import { createBrowserHistory } from 'history';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import TicketRoom from './Template/Cinema/Cinema';
-import Admin from './Template/AdminTemplate/Admin';
-import HomeTemplate from './Template/HomeTemplate/HomeTemplate';
-import Ticket from './Template/Ticket/ticket'
+import "./App.css";
+import { createBrowserHistory } from "history";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import TicketRoom from "./Template/Cinema/Cinema";
+import HomeTemplate from "./Template/HomeTemplate/HomeTemplate";
+import Ticket from "./Template/Ticket/ticket";
+import Spinner from "./components/Spinner/Spinner";
+import HomePage from "./pages/HomePage/HomePage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 export const history = createBrowserHistory();
 
 function App() {
   return (
-    <BrowserRouter>
-    <Routes>
-      <Route path='/MinhTriet-Cinema/admin' element={<Admin />} />
-      <Route path='/MinhTriet-Cinema/' element={<HomeTemplate />} />
-      <Route path='/MinhTriet-Cinema/ticket' element={<TicketRoom />} />
-      <Route path="/MinhTriet-Cinema/Template/Ticket/ticket" element={<Ticket />} />
-    </Routes>
-  </BrowserRouter>
-
+    <div>
+      <Spinner />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomeTemplate content={<HomePage />} />} />
+          <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/MinhTriet-Cinema/ticket" element={<TicketRoom />} />
+          <Route
+            path="/MinhTriet-Cinema/Template/Ticket/ticket"
+            element={<Ticket />}
+          />
+          <Route path="*" element={<Navigate to="/" />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

@@ -1,6 +1,27 @@
+/*****************************/
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.header {
+  @apply h-20 flex justify-between items-center bg-white opacity-80;
+}
+
+.ant-carousel .slick-dots li button {
+  height: 16px;
+  border-radius: 50%;
+  @apply bg-gray-400
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+  @apply bg-orange-400
+}
+
 .App {
   text-align: center;
 }
+/*****************************/
 
 .App-logo {
   height: 40vmin;
