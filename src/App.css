@@ -5,7 +5,7 @@
 }
 
 .header {
-  @apply h-20 flex justify-between items-center bg-white opacity-80;
+  @apply h-20 flex justify-between items-center ;
 }
 
 .ant-carousel .slick-dots li button {

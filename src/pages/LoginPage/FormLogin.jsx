@@ -3,6 +3,7 @@ import { Button, Form, Input, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginActionService, setUserAction } from "../../redux/userSlice";
+import userIcon from "./user-icon.svg";
 
 const FormLogin = () => {
   let navigate = useNavigate();
@@ -41,6 +42,10 @@ const FormLogin = () => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
+      <div className="w-20 mx-auto mb-6">
+        <img src={userIcon} />
+        <h1 className="text-center text-base font-medium my-2">Đăng nhập</h1>
+      </div>
       <Form.Item
         name="taiKhoan"
         rules={[
@@ -50,7 +55,7 @@ const FormLogin = () => {
           },
         ]}
       >
-        <Input placeholder="Tài khoàn" />
+        <Input placeholder="Tài khoản *" />
       </Form.Item>
 
       <Form.Item
@@ -62,18 +67,17 @@ const FormLogin = () => {
           },
         ]}
       >
-        <Input.Password placeholder="Mật khẩu" />
+        <Input.Password placeholder="Mật khẩu *" />
       </Form.Item>
 
       <Form.Item
         wrapperCol={{
-          offset: 4,
-          span: 16,
+          span: 24,
         }}
       >
-        <Button type="primary" htmlType="submit" block>
+        <button className="bg-orange-600 font-medium text-white w-full py-4">
           ĐĂNG NHẬP
-        </Button>
+        </button>
       </Form.Item>
     </Form>
   );

@@ -1,5 +1,10 @@
 import React from "react";
+import FooterBottom from "./FooterBottom";
 
 export default function FooterMobile() {
-  return <div>FooterMobile</div>;
+  return (
+    <div>
+      <FooterBottom />
+    </div>
+  );
 }
