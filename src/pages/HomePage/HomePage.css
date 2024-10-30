@@ -1,0 +1,9 @@
+/*banner carousel*/
+.banner .ant-carousel .slick-dots-bottom {
+    margin-bottom: 2rem;
+}
+
+.play-icon {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}
+  

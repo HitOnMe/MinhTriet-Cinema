@@ -61,7 +61,7 @@ export default function ListMovie() {
   let moviePages = groupMoviesIntoPages(movieArr, 8);
 
   return (
-    <Carousel>
+    <Carousel className="mt-10">
       {moviePages.map((pageMovies, pageIndex) => (
         <div key={pageIndex}>
           <Row gutter={[16, 16]}>{renderMovies(pageMovies)}</Row>

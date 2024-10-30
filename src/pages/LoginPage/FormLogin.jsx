@@ -43,7 +43,7 @@ const FormLogin = () => {
       autoComplete="off"
     >
       <div className="w-20 mx-auto mb-6">
-        <img src={userIcon} />
+        <img src={userIcon} alt="" />
         <h1 className="text-center text-base font-medium my-2">Đăng nhập</h1>
       </div>
       <Form.Item
