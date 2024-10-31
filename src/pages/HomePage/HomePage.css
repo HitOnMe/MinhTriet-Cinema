@@ -7,3 +7,10 @@
     @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
 }
   
+/* app advertising */
+.app-ad {
+    background-image: url('./HomePageImg/bg-app.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    @apply py-20
+}

@@ -42,7 +42,9 @@ const BannerCarousel = () => {
           <div className="relative" key={index}>
             <img src={imgSrc} style={contentStyle} alt="" />
             <div onClick={() => handleOpenVideo(index)} className="play-icon">
-              <img src={playIcon} alt="" />
+              <button>
+                <img src={playIcon} alt="" />
+              </button>
             </div>
           </div>
         ))}
