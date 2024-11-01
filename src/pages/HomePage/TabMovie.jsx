@@ -11,13 +11,13 @@ let ItemPhim = ({ phim }) => {
     <div className="flex space-x-3 mt-5">
       <img src={phim.hinhAnh} className="w-28 mr-5" alt="" />
       <div>
-        <h3>{phim.tenPhim}</h3>
+        <h3 className="text-lg font-semibold">{phim.tenPhim}</h3>
         <div className="grid grid-cols-3 gap-4">
           {phim.lstLichChieuTheoPhim.slice(0, 6).map((lichChieu, index) => {
             return (
               <span
                 key={index}
-                className="p-2 border-4 text-lime-500 border-lime-300 bg-gray-100 rounded hover:cursor-pointer"
+                className="p-1 border-4 font-medium text-lime-500 border-lime-300 bg-gray-100 rounded hover:cursor-pointer"
                 onClick={() => {
                   navigate(`./booking/${lichChieu.maLichChieu}`);
                 }}

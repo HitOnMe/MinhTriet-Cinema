@@ -1,3 +1,11 @@
+/* app advertising */
+.app-ad {
+  background-image: url('../HomePageImg/bg-app.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  @apply py-20
+}
+
 /* Khung điện thoại iPhone */
 .iphone-frame {
     width: 230px;
@@ -41,5 +49,7 @@
   height: 100%;
   object-fit: cover;
 }
+
+
 
   

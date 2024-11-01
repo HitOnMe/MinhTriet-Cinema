@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 export default function Header() {
   //hook dùng để lấy data từ store về: useSelector
   let user = useSelector((state) => state.userSlice.dataLogin);
-  console.log("user from Header", user);
 
   let renderMenu = () => {
     if (user) {
@@ -44,7 +43,7 @@ export default function Header() {
   return (
     <div>
       <div className="shadow-2xl fixed left-0 right-0 z-10 bg-white opacity-80">
-        <div className="header container mx-auto">
+        <div className="header container">
           <NavLink to="/" className="text-red-600 font-bold text-2xl italic">
             CyberFlix
           </NavLink>

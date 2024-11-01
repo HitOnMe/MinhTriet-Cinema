@@ -25,17 +25,14 @@ const BannerCarousel = () => {
     setOpenVideoIndex(null);
   };
 
-  const videoLinks = [
-    "egI9GUIjeYE", // Link video của slide 1
-    "rgrWXTz_8eU", // Link video của slide 2
-    "TcMBFSGVi1c", // Link video của slide 3
-  ];
+  //Link video
+  const videoLinks = ["__2bjWbetsA", "rgrWXTz_8eU", "TcMBFSGVi1c"];
 
   return (
     <div className="banner">
       <Carousel arrows autoplay>
         {[
-          "https://www.signature-entertainment.co.uk/wp-content/uploads/2024/09/T3-Website-Banner-Only-In-Cinemas-11-Oct-1.jpg",
+          "https://tongal.s3.amazonaws.com/custom-files/2024/08/14/VenomTheLastDanceInTheatersOctoberBanner_1.png",
           "https://khenphim.com/wp-content/uploads/2019/10/Joker-4-banner-e1569951070262.jpg",
           "https://i.ytimg.com/vi/fEg2Ug45wrU/maxresdefault.jpg",
         ].map((imgSrc, index) => (

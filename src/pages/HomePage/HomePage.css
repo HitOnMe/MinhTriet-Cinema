@@ -3,14 +3,38 @@
     margin-bottom: 2rem;
 }
 
+/* icon play popup video */
 .play-icon {
-    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition duration-300
+}
+
+.play-icon:hover {
+    @apply opacity-80
+}
+
+/* nút detail dẫn đến trang chi tiết */
+.detail-button {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-full transition duration-300 rounded-sm
+}
+
+.detail-button:hover {
+    @apply opacity-85 bg-orange-800
+}
+
+/* bộ lọc hiển thị khi hover vào từng phim trong list */
+.filter {
+    @apply bg-black rounded-lg w-full h-96 opacity-0 absolute top-0 left-0 transition duration-300
+}
+
+.filter:hover {
+    @apply opacity-80
 }
   
-/* app advertising */
-.app-ad {
-    background-image: url('./HomePageImg/bg-app.svg');
+/* background nền 2 bên */
+.bg-side {
+    background-image: url('./HomePageImg/bg-side.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    @apply py-20
+    background-position: center;
 }
+

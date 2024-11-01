@@ -31,13 +31,13 @@ export default function FooterTop() {
       <div className="w-1/3 px-16">
         <h1 className="mb-6 font-bold">Đối tác</h1>
         <div className="flex justify-between flex-wrap">
-          <span className="w-12 mr-12 mb-8">
+          <span className="w-12 mr-8 mb-8">
             <img
               src="https://movienew.cybersoft.edu.vn/hinhanh/cgv.png"
               alt=""
             />
           </span>
-          <span className="w-12 mr-12 mb-8">
+          <span className="w-12 mr-8 mb-8">
             <img
               src="https://movienew.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png"
               alt=""
@@ -49,13 +49,13 @@ export default function FooterTop() {
               alt=""
             />
           </span>
-          <span className="w-12 mr-12 mb-8">
+          <span className="w-12 mr-8 mb-8">
             <img
               src="https://movienew.cybersoft.edu.vn/hinhanh/cinestar.png"
               alt=""
             />
           </span>
-          <span className="w-12 mr-12 mb-8">
+          <span className="w-12 mr-8 mb-8">
             <img
               src="https://movienew.cybersoft.edu.vn/hinhanh/lotte-cinema.png"
               alt=""
