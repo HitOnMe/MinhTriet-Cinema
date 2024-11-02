@@ -10,9 +10,9 @@ export default function HomePage() {
     <div>
       <div className="bg-side">
         <BannerCarousel />
+        <SelectMovie />
         <div className="container bg-white">
           <ListMovie />
-          {/* <SelectMovie /> */}
           <TabMovie />
         </div>
       </div>

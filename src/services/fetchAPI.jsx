@@ -29,6 +29,10 @@ export let movieService = {
     return http.post("/api/QuanLyNguoiDung/DangNhap", acc);
   },
 
+  dangKyTaiKhoan: (acc) => {
+    return http.post("/api/QuanLyNguoiDung/DangKy", acc);
+  },
+
   layThongTinLichChieuPhim: (idPhim) => {
     return http.get(`/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${idPhim}`);
   },

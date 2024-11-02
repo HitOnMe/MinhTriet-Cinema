@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import logo from "./logo.png";
 
 export default function Header() {
   //hook dùng để lấy data từ store về: useSelector
@@ -45,7 +46,7 @@ export default function Header() {
       <div className="shadow-2xl fixed left-0 right-0 z-10 bg-white opacity-80">
         <div className="header container">
           <NavLink to="/" className="text-red-600 font-bold text-2xl italic">
-            CyberFlix
+            <img alt="" src={logo} className="max-w-16" />
           </NavLink>
           <div>{renderMenu()}</div>
         </div>

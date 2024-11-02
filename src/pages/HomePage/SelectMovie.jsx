@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Select, Space } from "antd";
 import { movieService } from "../../services/fetchAPI";
+import { useNavigate } from "react-router";
 
 export default function SelectMovie() {
   const [phim, setPhim] = useState([]); // Dữ liệu phim
@@ -9,6 +10,9 @@ export default function SelectMovie() {
 
   const [selectedPhim, setSelectedPhim] = useState(); // Phim được chọn
   const [selectedRap, setSelectedRap] = useState(); // Cụm rạp được chọn
+  const [selectedLichChieu, setSelectedLichChieu] = useState(); // Thêm state cho mã lịch chiếu đã chọn
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     movieService
@@ -22,6 +26,8 @@ export default function SelectMovie() {
   // Khi chọn phim, gọi API để lấy thông tin các rạp chiếu của phim đó
   const handleSelectPhim = (maPhim) => {
     setSelectedPhim(maPhim);
+    setSelectedRap(null);
+    setLichChieu([]);
     // Gọi API để lấy thông tin lịch chiếu dựa trên mã phim
     movieService
       .layThongTinLichChieuPhim(maPhim)
@@ -34,24 +40,39 @@ export default function SelectMovie() {
   };
 
   // Khi chọn cụm rạp, cập nhật danh sách suất chiếu
-  const handleSelectRap = (maHeThongRap, maCumRap) => {
+  const handleSelectRap = (maPhim, maCumRap) => {
     setSelectedRap(maCumRap); // Cập nhật cụm rạp đã chọn
+    setLichChieu([]);
 
-    // Tìm hệ thống rạp
-    const rap = raps.find((r) => r.maHeThongRap === maHeThongRap);
+    // Tìm cụm rạp trong hệ thống rạp của phim đã chọn
+    const rap = raps.find((rap) =>
+      rap.cumRapChieu.some((cr) => cr.maCumRap === maCumRap)
+    );
 
     if (rap) {
-      // Tìm cụm rạp trong hệ thống rạp đã chọn
       const cumRap = rap.cumRapChieu.find((cr) => cr.maCumRap === maCumRap);
 
       if (cumRap) {
         console.log("Danh sách lịch chiếu:", cumRap.lichChieuPhim);
-        setLichChieu(cumRap.lichChieuPhim); // Lưu danh sách suất chiếu của rạp đó
+        setLichChieu(cumRap.lichChieuPhim); // Lưu danh sách suất chiếu của cụm rạp đó
       } else {
         console.log("Không tìm thấy cụm rạp");
       }
     } else {
-      console.log("Không tìm thấy hệ thống rạp");
+      console.log("Không tìm thấy hệ thống rạp cho mã phim:", maPhim);
+    }
+  };
+
+  const handleSelectLichChieu = (maLichChieu) => {
+    setSelectedLichChieu(maLichChieu); // Lưu mã lịch chiếu được chọn
+  };
+
+  // Hàm điều hướng tới trang đặt vé
+  const handleBooking = () => {
+    if (selectedLichChieu) {
+      navigate(`/booking/${selectedLichChieu}`);
+    } else {
+      alert("Vui lòng chọn giờ chiếu để đặt vé!");
     }
   };
 
@@ -85,35 +106,40 @@ export default function SelectMovie() {
 
   return (
     <div className="container">
-      <Space wrap className="mt-10 mb-4">
+      <Space wrap className="mt-6 mb-4 flex justify-between">
         <Select
-          defaultValue="Phim"
+          value={selectedPhim || "Chọn phim"}
           style={{
-            width: 300,
             margin: 5,
           }}
           onChange={handleSelectPhim}
           options={renderMovies()}
+          className="w-64 h-12"
         />
         <Select
-          defaultValue="Rạp"
+          value={selectedRap || "Chọn rạp"}
           style={{
-            width: 300,
             margin: 5,
           }}
+          className="w-64 h-12"
           onChange={(value) => handleSelectRap(selectedPhim, value)}
           options={renderRaps()}
-          disabled={!selectedPhim} // chỉ chọn khi đã có phim
         />
         <Select
           defaultValue="Ngày giờ chiếu"
           style={{
-            width: 300,
             margin: 5,
           }}
+          className="w-64 h-12"
+          onChange={handleSelectLichChieu}
           options={renderLichChieu()}
-          disabled={!selectedRap} // chỉ chọn khi đã có rạp
         />
+        <button
+          className="px-8 py-4 text-white bg-orange-500 font-bold rounded-sm"
+          onClick={handleBooking}
+        >
+          MUA VÉ
+        </button>
       </Space>
     </div>
   );
