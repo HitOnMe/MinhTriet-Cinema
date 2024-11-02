@@ -10,6 +10,14 @@ export let loginActionService = createAsyncThunk(
   }
 );
 
+export let registerActionService = createAsyncThunk(
+  "userSlice/registerActionService",
+  async (dataForm) => {
+    let result = await http.post("/api/QuanLyNguoiDung/DangKy", dataForm);
+    return result.data.content;
+  }
+);
+
 // lấy dữ liệu từ localStorage khi user bật web
 // localStorage.getItem('key') ? JSON.parse(localStorage.getItem('key)) : null
 
@@ -34,12 +42,22 @@ const userSlice = createSlice({
     //fullfilled: khi gọi api thành công
     // pending: khi gọi api đang chờ xử lý (loading)
     // reject: khi gọi api thất bại
+
+    // LOGIN
     builder.addCase(loginActionService.fulfilled, (state, action) => {
       message.success("Đăng nhập thành công");
       state.dataLogin = action.payload;
     });
     builder.addCase(loginActionService.rejected, (state, action) => {
       message.error("Đăng nhập thất bại");
+    });
+
+    // REGISTER
+    builder.addCase(registerActionService.fulfilled, (state, action) => {
+      message.success("Đăng ký thành công");
+    });
+    builder.addCase(registerActionService.rejected, (state, action) => {
+      message.error("Đăng ký thất bại");
     });
   },
 });

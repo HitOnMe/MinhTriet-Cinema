@@ -1,8 +1,8 @@
 import React from "react";
-import { Button, Form, Input, message } from "antd";
-import { useNavigate } from "react-router-dom";
+import { Form, Input } from "antd";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginActionService, setUserAction } from "../../redux/userSlice";
+import { loginActionService } from "../../redux/userSlice";
 import userIcon from "./user-icon.svg";
 
 const FormLogin = () => {
@@ -79,6 +79,15 @@ const FormLogin = () => {
           ĐĂNG NHẬP
         </button>
       </Form.Item>
+      <span className="font-semibold">
+        Bạn chưa có tài khoản?
+        <NavLink
+          to="/register"
+          className="text-blue-500 hover:text-blue-700 transition duration-300 ml-2"
+        >
+          Đăng ký ngay!
+        </NavLink>
+      </span>
     </Form>
   );
 };

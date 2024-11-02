@@ -18,6 +18,12 @@ export default function Header() {
           >
             Log out
           </button>
+          <NavLink
+            to="/register"
+            className="text-white rounded px-10 py-2 ml-4 border-2 bg-red-600"
+          >
+            Register
+          </NavLink>
         </div>
       );
     } else {
@@ -28,6 +34,12 @@ export default function Header() {
             className="text-white rounded px-10 py-2 border-2 bg-red-600"
           >
             Login
+          </NavLink>
+          <NavLink
+            to="/register"
+            className="text-white rounded px-10 py-2 ml-4 border-2 bg-red-600"
+          >
+            Register
           </NavLink>
         </div>
       );

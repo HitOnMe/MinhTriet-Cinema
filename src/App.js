@@ -7,6 +7,7 @@ import Ticket from "./Template/Ticket/ticket";
 import Spinner from "./components/Spinner/Spinner";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
 export const history = createBrowserHistory();
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomeTemplate content={<HomePage />} />} />
           <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/register" element={<RegisterPage />}></Route>
           <Route path="/MinhTriet-Cinema/ticket" element={<TicketRoom />} />
           <Route
             path="/MinhTriet-Cinema/Template/Ticket/ticket"
