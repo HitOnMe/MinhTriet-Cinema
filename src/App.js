@@ -15,8 +15,8 @@ function App() {
     <Routes>
       <Route path='/MinhTriet-Cinema/admin' element={<Admin />} />
       <Route path='/MinhTriet-Cinema/' element={<HomeTemplate />} />
-      <Route path='/MinhTriet-Cinema/ticket' element={<TicketRoom />} />
-      <Route path="/MinhTriet-Cinema/Template/Ticket/ticket" element={<Ticket />} />
+      <Route path='/MinhTriet-Cinema/cinema' element={<TicketRoom />} />
+      <Route path="/MinhTriet-Cinema/ticket" element={<Ticket />} />
     </Routes>
   </BrowserRouter>
 
