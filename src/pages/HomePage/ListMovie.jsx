@@ -44,7 +44,7 @@ export default function ListMovie() {
             <button
               className="bg-orange-600 px-6 py-4 font-bold text-white detail-button"
               onClick={() => {
-                navigate(`./detail/${movie.maPhim}`);
+                navigate(`/MinhTriet-Cinema/detail/${movie.maPhim}`);
               }}
             >
               CHI TIẾT

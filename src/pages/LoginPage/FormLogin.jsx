@@ -82,7 +82,7 @@ const FormLogin = () => {
       <span className="font-semibold">
         Bạn chưa có tài khoản?
         <NavLink
-          to="/register"
+          to="/MinhTriet-Cinema/register"
           className="text-blue-500 hover:text-blue-700 transition duration-300 ml-2"
         >
           Đăng ký ngay!

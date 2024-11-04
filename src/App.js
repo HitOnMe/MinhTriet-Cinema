@@ -16,15 +16,21 @@ function App() {
       <Spinner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomeTemplate content={<HomePage />} />} />
-          <Route path="/login" element={<LoginPage />}></Route>
-          <Route path="/register" element={<RegisterPage />}></Route>
+          <Route
+            path="/MinhTriet-Cinema/"
+            element={<HomeTemplate content={<HomePage />} />}
+          />
+          <Route path="/MinhTriet-Cinema/login" element={<LoginPage />}></Route>
+          <Route
+            path="/MinhTriet-Cinema/register"
+            element={<RegisterPage />}
+          ></Route>
           <Route path="/MinhTriet-Cinema/ticket" element={<TicketRoom />} />
           <Route
             path="/MinhTriet-Cinema/Template/Ticket/ticket"
             element={<Ticket />}
           />
-          <Route path="*" element={<Navigate to="/" />}></Route>
+          <Route path="*" element={<Navigate to="/MinhTriet-Cinema" />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

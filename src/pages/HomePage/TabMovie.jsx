@@ -19,7 +19,7 @@ let ItemPhim = ({ phim }) => {
                 key={index}
                 className="p-1 border-4 font-medium text-lime-500 border-lime-300 bg-gray-100 rounded hover:cursor-pointer"
                 onClick={() => {
-                  navigate(`./booking/${lichChieu.maLichChieu}`);
+                  navigate(`/MinhTriet-Cinema/ticket/${lichChieu.maLichChieu}`);
                 }}
               >
                 {moment(lichChieu.ngayChieuGioChieu).format(
