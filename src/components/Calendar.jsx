@@ -62,7 +62,7 @@ const DateSelector = ({date, select, reset}) => {
       i
     </text>
   </svg>
-  <span class="text-white font-semibold">Nhấn vào giờ chiếu để tiến hành đặt vé</span>
+  <span class="text-white font-semibold">Vui lòng chọn ngày và nhấn vào giờ chiếu để tiến hành đặt vé</span>
 </div>
 
     </div>

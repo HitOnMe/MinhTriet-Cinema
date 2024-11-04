@@ -1,0 +1,64 @@
+// styles.scss hoặc file tương tự
+#root {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://wallpaperboat.com/wp-content/uploads/2019/11/cinema-20.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; // Chỉ lặp lại nếu cần
+}
+
+.container {
+    
+    padding: 20px; // Thêm padding cho container
+    border-radius: 10px;
+    color: black;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); // Thêm hiệu ứng đổ bóng
+    position: relative;
+}
+
+h1, h3, p {
+    margin: 10px 0; // Khoảng cách giữa các tiêu đề và đoạn văn
+}
+
+.grid {
+    display: grid;
+    gap: 10px; // Khoảng cách giữa các item trong grid
+}
+
+.w-10 {
+    width: 2.5rem; // Thay đổi kích thước ghế
+    height: 2.5rem; // Thay đổi kích thước ghế
+    border-radius: 5px; // Bo góc cho ghế
+    transition: background-color 0.3s; // Thêm hiệu ứng chuyển đổi màu
+}
+
+.bg-gray-300 {
+    background-color: #95a5a6; // Màu ghế chưa chọn
+    cursor: pointer; // Chỉ thị người dùng khi di chuột vào ghế
+}
+
+.bg-green-500 {
+    background-color: #27ae60; // Màu ghế đã chọn
+}
+
+.bg-green-300 {
+    background-color: #2ecc71; // Màu ghế khi hover
+}
+
+.text-green-400 {
+    color: #2ecc71; // Màu chữ cho tiêu đề
+}
+
+.text-red-400 {
+    color: #e74c3c; // Màu chữ cho giá ghế
+}
+
+// Thêm các kiểu cho tổng giá vé
+.total-price {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    color: #ecf0f1; // Màu chữ cho tổng giá
+}

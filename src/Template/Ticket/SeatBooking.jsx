@@ -10,7 +10,7 @@ const SeatBooking = ({ selectedSeats, setSelectedSeats }) => {
       ? selectedSeats.filter(id => id !== seatId)
       : [...selectedSeats, seatId];
     
-    setSelectedSeats(newSelectedSeats); // Cập nhật ghế đã chọn
+    setSelectedSeats(newSelectedSeats);
   };
 
   return (

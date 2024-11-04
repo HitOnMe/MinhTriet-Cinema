@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import '../../src/assets/scss/detail.scss';
 import moment from 'moment';
 import Calendar from './Calendar';
-
+import { NavLink } from 'react-router-dom';
+import configData from '../services/config'
 export default class MovieList extends PureComponent {
   constructor(props) {
     super(props);
@@ -11,9 +12,19 @@ export default class MovieList extends PureComponent {
       selectedDay: null,
       selectDay:null,
       selectedShowtimes: {},
+      film: null
     };
   }
-
+  handleFilm = (film) => {
+    const url = `/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim= ${film}`;
+    const getFilm = async() => {
+      const data = await configData('GET', url);
+      console.log(data.data.content)
+      return this.props.getFilm(data.data.content)
+    }
+   getFilm()
+   
+  }
   componentDidMount() {
     this.extractMovieDates();
   }
@@ -91,7 +102,7 @@ updateShowtimes = (date, filmId) => {
         </div>
       );
     }
-    console.log(this.state.selectDay)
+ 
     const filteredMovies = this.state.selectDay 
     ? sendData.filter(film => 
         film.lstLichChieuTheoPhim.some(schedule =>
@@ -99,7 +110,7 @@ updateShowtimes = (date, filmId) => {
         ))
     : sendData;
     return filteredMovies.map((film, index) => (
-      <div className="pt-5 card mx-2" key={index}>
+      <div className="pt-5 card mx-2" key={index} onClick = {() => this.handleFilm(film.maPhim)}>
         <div className='flex flex-row'>
           <div className="movie-image mb-3 w-1/3 flex-1 mx-3">
             <img src={film.hinhAnh} alt={film.tenPhim} className="rounded-lg shadow-md w-full h-auto" />
@@ -127,9 +138,9 @@ updateShowtimes = (date, filmId) => {
   <div className="mt-3 grid grid-cols-3">
     <h2 className="font-semibold" style={{ lineHeight: "40px" }}>Giờ chiếu:</h2>
     {this.state.selectedShowtimes[film.maPhim].map((showtime, idx) => (
-      <div key={idx} className="col-span-1 text-blue-600 text-center bg-white p-2 rounded-lg shadow-md hover:bg-blue-50 transition">
+      <NavLink to = '/MinhTriet-Cinema/ticket' key={idx} className="col-span-1 text-blue-600 text-center bg-white p-2 rounded-lg shadow-md hover:bg-blue-50 transition">
         {showtime}
-      </div>
+      </NavLink>
     ))}
   </div>
 )}

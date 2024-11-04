@@ -6,7 +6,7 @@ const TicketForm = () => {
   const totalPrice = selectedSeats.length * 100000; // Giả định giá vé là 100000 VNĐ
 
   return (
-    <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
+    <div className=" p-4 rounded-lg shadow-lg">
             <h2 className="text-xl font-bold mb-4">Thông Tin Đặt Vé</h2>
             <div className="mb-2">
               <strong>Ngày Chiếu:</strong> <span>12/10/2024</span>
