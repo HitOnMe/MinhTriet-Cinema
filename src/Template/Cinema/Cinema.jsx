@@ -18,7 +18,7 @@ const TicketRoom = () => {
   const handleRender = (data) => {
       setMovie(data);}
     return (
-      <div>
+      <>
       
        <Detail film = {film}/>
        <div className='grid grid-cols-8 pt-6 container mx-auto px-4m-2 sm:m-4 md:m-6 lg:m-8'>
@@ -26,7 +26,7 @@ const TicketRoom = () => {
         <FilmDetail sendData = {movie} reset = {reset} resetMovie = {handleReset} getFilm = {handleFilm}/>
          
        </div>
-     </div>
+     </>
        );
   }
 export default TicketRoom

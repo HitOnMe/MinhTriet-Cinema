@@ -79,9 +79,6 @@ const Detail = React.memo(({ film }) => {
     <div>
       <div className="movie-card">
         <div className="container grid grid-cols-2">
-          <div className="video-container cover">
-        
-          </div>
 
           <Hero className='flex' backgroundImage={film.hinhAnh}>
            

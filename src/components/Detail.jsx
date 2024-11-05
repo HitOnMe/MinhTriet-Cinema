@@ -138,7 +138,7 @@ updateShowtimes = (date, filmId) => {
   <div className="mt-3 grid grid-cols-3">
     <h2 className="font-semibold" style={{ lineHeight: "40px" }}>Giờ chiếu:</h2>
     {this.state.selectedShowtimes[film.maPhim].map((showtime, idx) => (
-      <NavLink to = '/MinhTriet-Cinema/ticket' key={idx} className="col-span-1 text-blue-600 text-center bg-white p-2 rounded-lg shadow-md hover:bg-blue-50 transition">
+      <NavLink to = '/ticket' key={idx} className="col-span-1 text-blue-600 text-center bg-white p-2 rounded-lg shadow-md hover:bg-blue-50 transition">
         {showtime}
       </NavLink>
     ))}

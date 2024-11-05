@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SeatBooking from './SeatBooking';
-import MovieSlider from './MoveSlider'; // Import Slider
+import TicketForm from './ticketform'
 import '../../assets/scss/ticket.scss';
 import '@splidejs/splide/css';
 
@@ -11,11 +11,7 @@ const TicketBookingLayout = () => {
   return (
     <div className="text-white min-h-screen flex items-center justify-center">
       <div className="container grid grid-cols-12 gap-4">
-        <div className="col-span-8">
-          <SeatBooking selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats} />
-        </div>
-
-        <div className="col-span-4">
+      <div className="col-span-4">
           <h3 className='text-green-400 text-center'>Thông tin phim</h3>
           <h3 className='text-xl'>Lật mặt 48h</h3>
           <p>Địa điểm: BKD Star - Vincom 3/2</p>
@@ -30,6 +26,11 @@ const TicketBookingLayout = () => {
             <div className='text-right'>{totalPrice.toLocaleString()} Đ</div>
           </div>
         </div>
+        <div className="col-span-8">
+          <SeatBooking selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats} />
+        </div>
+
+        
       </div>
     </div>
   );
