@@ -1,5 +1,7 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
+import Splide from '@splidejs/splide';
+import '@splidejs/splide/dist/css/splide.min.css'; // Import CSS cho Splide
 const SeatBooking = ({ selectedSeats, setSelectedSeats }) => {
   const seats = Array.from({ length: 6 }, () => Array.from({ length: 8 }, () => false));
 
@@ -10,7 +12,7 @@ const SeatBooking = ({ selectedSeats, setSelectedSeats }) => {
       ? selectedSeats.filter(id => id !== seatId)
       : [...selectedSeats, seatId];
     
-    setSelectedSeats(newSelectedSeats);
+    setSelectedSeats(newSelectedSeats); // Cập nhật ghế đã chọn
   };
 
   return (
@@ -37,5 +39,39 @@ const SeatBooking = ({ selectedSeats, setSelectedSeats }) => {
     </div>
   );
 };
+const MovieSlider = ({ selectedSeats, setSelectedSeats }) => {
+  useEffect(() => {
+    const splide = new Splide('.splide', {
+      type: 'loop',
+      perPage: 1,
+      autoplay: false,
+      pagination: false,
+      arrows: true,
+    });
 
-export default SeatBooking;
+    splide.mount();
+
+    return () => {
+      splide.destroy(); // Hủy khi component bị unmount
+    };
+  }, []);
+
+  return (
+    <div className="splide">
+      <div className="splide__track">
+        <ul className="splide__list">
+          <li className="splide__slide">
+            <SeatBooking selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats} />
+          </li>
+          <li className="splide__slide">Slide 2: Hình ảnh phim 2</li>
+          <li className="splide__slide">Slide 3: Hình ảnh phim 3</li>
+          {/* Thay thế các slide bằng hình ảnh thực tế */}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default MovieSlider;
+
+
