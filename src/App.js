@@ -11,7 +11,7 @@ export const history = createBrowserHistory();
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/MinhTriet-Cinema">
     <Routes>
       <Route path='/admin' element={<Admin />} />
       <Route path='/' element={<HomeTemplate />} />
