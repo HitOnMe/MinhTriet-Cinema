@@ -13,10 +13,10 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path='/MinhTriet-Cinema/admin' element={<Admin />} />
-      <Route path='/MinhTriet-Cinema/' element={<HomeTemplate />} />
-      <Route path='/MinhTriet-Cinema/cinema' element={<TicketRoom />} />
-      <Route path="/MinhTriet-Cinema/ticket" element={<MoveSlider />} />
+      <Route path='/admin' element={<Admin />} />
+      <Route path='/' element={<HomeTemplate />} />
+      <Route path='/cinema' element={<TicketRoom />} />
+      <Route path="/ticket" element={<MoveSlider />} />
     </Routes>
   </BrowserRouter>
 
