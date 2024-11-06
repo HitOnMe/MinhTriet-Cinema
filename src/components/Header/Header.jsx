@@ -19,7 +19,7 @@ export default function Header() {
             Log out
           </button>
           <NavLink
-            to="/MinhTriet-Cinema/register"
+            to="/register"
             className="text-white rounded px-10 py-2 ml-4 border-2 bg-red-600"
           >
             Register
@@ -30,13 +30,13 @@ export default function Header() {
       return (
         <div>
           <NavLink
-            to="/MinhTriet-Cinema/login"
+            to="/login"
             className="text-white rounded px-10 py-2 border-2 bg-red-600"
           >
             Login
           </NavLink>
           <NavLink
-            to="/MinhTriet-Cinema/register"
+            to="/register"
             className="text-white rounded px-10 py-2 ml-4 border-2 bg-red-600"
           >
             Register

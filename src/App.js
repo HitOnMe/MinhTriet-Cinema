@@ -8,6 +8,7 @@ import Spinner from "./components/Spinner/Spinner";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import DetailPage from "./pages/DetailPage/DetailPage";
 export const history = createBrowserHistory();
 
 function App() {
@@ -16,21 +17,19 @@ function App() {
       <Spinner />
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<HomeTemplate content={<HomePage />} />} />
+          <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/register" element={<RegisterPage />}></Route>
           <Route
-            path="/MinhTriet-Cinema/"
-            element={<HomeTemplate content={<HomePage />} />}
-          />
-          <Route path="/MinhTriet-Cinema/login" element={<LoginPage />}></Route>
-          <Route
-            path="/MinhTriet-Cinema/register"
-            element={<RegisterPage />}
+            path="/detail/:id"
+            element={<HomeTemplate content={<DetailPage />} />}
           ></Route>
-          <Route path="/MinhTriet-Cinema/ticket" element={<TicketRoom />} />
+          <Route path="/ticket" element={<TicketRoom />} />
           <Route
             path="/MinhTriet-Cinema/Template/Ticket/ticket"
             element={<Ticket />}
           />
-          <Route path="*" element={<Navigate to="/MinhTriet-Cinema" />}></Route>
+          <Route path="*" element={<Navigate to="/" />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

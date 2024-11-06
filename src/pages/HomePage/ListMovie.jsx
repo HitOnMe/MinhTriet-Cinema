@@ -28,12 +28,29 @@ export default function ListMovie() {
     return match ? match[1] : null;
   };
 
+  let hotMovie = (hot) => {
+    if (hot) {
+      return (
+        <span className="bg-orange-500 text-white rounded-sm px-4 py-2">
+          HOT
+        </span>
+      );
+    }
+  };
+
   //hàm render danh sách phim
   let renderMovies = (pageMovies) => {
     return pageMovies.map((movie) => (
       <Col span={6} className="mt-8">
         <div className="hover: cursor-pointer relative">
-          <img alt="" src={movie.hinhAnh} className="rounded-lg w-full h-96" />
+          <div>
+            <img
+              alt=""
+              src={movie.hinhAnh}
+              className="rounded-lg w-full h-96"
+            />
+            <div className="absolute top-6 right-4">{hotMovie(movie.hot)}</div>
+          </div>
           <div
             className="filter"
             onClick={() => handleOpenVideo(movie.trailer)}
@@ -44,7 +61,7 @@ export default function ListMovie() {
             <button
               className="bg-orange-600 px-6 py-4 font-bold text-white detail-button"
               onClick={() => {
-                navigate(`/MinhTriet-Cinema/detail/${movie.maPhim}`);
+                navigate(`/detail/${movie.maPhim}`);
               }}
             >
               CHI TIẾT

@@ -70,7 +70,7 @@ export default function SelectMovie() {
   // Hàm điều hướng tới trang đặt vé
   const handleBooking = () => {
     if (selectedLichChieu) {
-      navigate(`/MinhTriet-Cinema/ticket/${selectedLichChieu}`);
+      navigate(`/ticket/${selectedLichChieu}`);
     } else {
       alert("Vui lòng chọn giờ chiếu để đặt vé!");
     }
