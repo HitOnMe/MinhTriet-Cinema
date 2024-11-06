@@ -4,6 +4,7 @@ import TabMovie from "./TabMovie";
 import SelectMovie from "./SelectMovie";
 import BannerCarousel from "./BannerCarousel";
 import AppAdvertising from "./AppAdvertising/AppAdvertising";
+import Promotions from "./Promotions";
 
 export default function HomePage() {
   return (
@@ -13,7 +14,8 @@ export default function HomePage() {
         <SelectMovie />
         <div className="container bg-white">
           <ListMovie />
-          <TabMovie />
+          {/* <TabMovie /> */}
+          <Promotions />
         </div>
       </div>
       <AppAdvertising />

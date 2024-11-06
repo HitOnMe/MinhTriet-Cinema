@@ -11,6 +11,7 @@ export default function ListMovie() {
 
   const [movieArr, setMovieArr] = useState([]);
   const [openVideoId, setOpenVideoId] = useState(null); // Đổi tên state để lưu id của video
+  const [isShowing, setIsShowing] = useState(true); // lưu trạng thái phim đang chiếu hay sắp chiếu
 
   const handleOpenVideo = (trailerUrl) => {
     const videoId = getVideoId(trailerUrl);
@@ -83,6 +84,13 @@ export default function ListMovie() {
       .catch((err) => {});
   }, []);
 
+  //lọc phim theo loại đang chiếu hoặc sắp chiếu
+  const getFilteredMovies = () => {
+    return movieArr.filter((movie) =>
+      isShowing ? movie.dangChieu : movie.sapChieu
+    );
+  };
+
   // hàm chia số lượng phim hiển thị dựa cho từng trang của carousel
   let groupMoviesIntoPages = (movies, itemsPerPage) => {
     const pages = [];
@@ -93,11 +101,33 @@ export default function ListMovie() {
   };
 
   // Tạo carousel với các trang phim
-  let moviePages = groupMoviesIntoPages(movieArr, 8);
+  let moviePages = groupMoviesIntoPages(getFilteredMovies(), 8);
 
   return (
     <div>
-      <Carousel>
+      <div className="flex justify-center items-center">
+        <button
+          className={`mx-1 font-medium px-4 py-2 rounded-sm ${
+            isShowing ? "bg-orange-500 text-white" : "bg-gray-200"
+          }`}
+          onClick={() => {
+            setIsShowing(true);
+          }}
+        >
+          Phim đang chiếu
+        </button>
+        <button
+          className={`mx-1 font-medium px-4 py-2 rounded-sm ${
+            !isShowing ? "bg-orange-500 text-white" : "bg-gray-200"
+          }`}
+          onClick={() => {
+            setIsShowing(false);
+          }}
+        >
+          Phim sắp chiếu
+        </button>
+      </div>
+      <Carousel className="mb-10">
         {moviePages.map((pageMovies, pageIndex) => (
           <div key={pageIndex}>
             <Row gutter={[16, 16]}>{renderMovies(pageMovies)}</Row>
