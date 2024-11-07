@@ -33,6 +33,12 @@ export let movieService = {
     return http.post("/api/QuanLyNguoiDung/DangKy", acc);
   },
 
+  thongTinTaiKhoan: (acc) => {
+    return http.get(
+      `/api/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=GP00&tuKhoa=${acc}`
+    );
+  },
+
   layThongTinLichChieuPhim: (idPhim) => {
     return http.get(`/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${idPhim}`);
   },

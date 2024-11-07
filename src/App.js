@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import DetailPage from "./pages/DetailPage/DetailPage";
+import AccountPage from "./pages/AccountPage/AccountPage";
 export const history = createBrowserHistory();
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<HomeTemplate content={<HomePage />} />} />
           <Route path="/login" element={<LoginPage />}></Route>
           <Route path="/register" element={<RegisterPage />}></Route>
+          <Route path="/account" element={<AccountPage />}></Route>
           <Route
             path="/detail/:id"
             element={<HomeTemplate content={<DetailPage />} />}

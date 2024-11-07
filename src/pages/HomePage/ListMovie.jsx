@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Carousel, Row, Col } from "antd";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { movieService } from "../../services/fetchAPI";
 import playIcon from "./HomePageImg/play.png";
 import ModalVideo from "react-modal-video";
@@ -136,6 +136,16 @@ export default function ListMovie() {
           </div>
         ))}
       </Carousel>
+      <div className="text-center mb-12">
+        <button
+          className="text-white font-medium py-4 px-4 bg-orange-500 text-2xl rounded-lg"
+          onClick={() => {
+            navigate("/cinema");
+          }}
+        >
+          Xem thêm phim tại các cụm rạp
+        </button>
+      </div>
       {openVideoId && (
         <ModalVideo
           channel="youtube"

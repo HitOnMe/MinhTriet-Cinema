@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import logo from "./logo.png";
+import Swal from "sweetalert2";
 
 export default function Header() {
   //hook dùng để lấy data từ store về: useSelector
@@ -11,7 +12,9 @@ export default function Header() {
     if (user) {
       return (
         <div>
-          <strong className="me-4">{user.hoTen}</strong>
+          <NavLink to="/account">
+            <strong className="me-4 hover:cursor-pointer">{user.hoTen}</strong>
+          </NavLink>
           <button
             className="text-red-600 border-red-600 border-2 bg-white px-10 py-2 rounded-s-lg rounded-e-lg"
             onClick={handleLogout}
@@ -47,10 +50,22 @@ export default function Header() {
   };
 
   let handleLogout = () => {
-    //xóa localStorage
-    localStorage.removeItem("USER_LOGIN");
-    //quay lại trang login
-    window.location.href = "/login";
+    Swal.fire({
+      title: "Bạn có muốn đăng xuất không?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Có",
+      cancelButtonText: "Không",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        //xóa localStorage
+        localStorage.removeItem("USER_LOGIN");
+        //quay lại trang login
+        window.location.href = "/";
+      }
+    });
   };
 
   return (
