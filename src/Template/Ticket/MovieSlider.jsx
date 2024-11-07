@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/dist/css/splide.min.css'; // Import CSS cho Splide
 
-const SeatBooking = ({ selectedSeats, setSelectedSeats, seat }) => {
+const SeatBooking = ({ selectedSeats, setSelectedSeats, seat, price }) => {
   let seats2D = [];
   if (seat) {
     const numCols = 16; // Tổng số cột (16)
@@ -15,14 +15,13 @@ const SeatBooking = ({ selectedSeats, setSelectedSeats, seat }) => {
 
   const handleSeatClick = (row, col) => {
     const seatId = `${row}-${col}`;
-    
-
     const seat = seats[row][col]; 
-    console.log(seat.daDat)
+    
+    console.log(seat.giaVe)
     if (seat.daDat) {
       return;
     }
-  
+    price(seat.giaVe)
     const isSelected = selectedSeats.includes(seatId);
     const newSelectedSeats = isSelected
       ? selectedSeats.filter((id) => id !== seatId)
@@ -140,7 +139,7 @@ const SeatBooking = ({ selectedSeats, setSelectedSeats, seat }) => {
   );
 };
 
-const MovieSlider = ({ selectedSeats, setSelectedSeats, seat }) => {
+const MovieSlider = ({ selectedSeats, setSelectedSeats, seat, price }) => {
   useEffect(() => {
     const splide = new Splide('.splide', {
       type: 'loop',
@@ -162,7 +161,7 @@ const MovieSlider = ({ selectedSeats, setSelectedSeats, seat }) => {
       <div className="splide__track">
         <ul className="splide__list">
           <li className="splide__slide">
-            <SeatBooking selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats} seat={seat} />
+            <SeatBooking selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats} seat={seat} price = {price}/>
           </li>
           <li className="splide__slide">Slide 2: Hình ảnh phim 2</li>
           <li className="splide__slide">Slide 3: Hình ảnh phim 3</li>

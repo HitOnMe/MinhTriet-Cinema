@@ -11,7 +11,13 @@ const TicketBookingLayout = () => {
   const url = `/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`;
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [ticket, setTicket] = useState(null); // To store the ticket data
+  const [price, setPrice] = useState(null);
+  const [total, setTotal] = useState(null)
 
+  const ticketPrice = (prices) => {
+    setPrice(prices);
+    setTotal(prevTotal => prevTotal += prices)
+  }
   useEffect(() => {
     const fetchTicketData = async () => {
       if (maLichChieu) {
@@ -23,7 +29,6 @@ const TicketBookingLayout = () => {
     fetchTicketData();  
   }, [maLichChieu]); 
 
-  const totalPrice = selectedSeats.length * 100000;
 
   return (
     <div className="text-white min-h-screen flex items-center justify-center">
@@ -45,12 +50,12 @@ const TicketBookingLayout = () => {
             </div>
             <div className="grid grid-cols-2">
               <span className="text-red-400">Tổng tiền</span>
-              <div className="text-right">{totalPrice.toLocaleString()} Đ</div>
+              <div className="text-right">{total}</div>
             </div>
           </div>
         </div>
         <div className="">
-          <MovieSlider selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats} seat = {ticket}/>
+          <MovieSlider selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats} seat = {ticket} price = {ticketPrice}/>
         </div>
       </div>
     </div>

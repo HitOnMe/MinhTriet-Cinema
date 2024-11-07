@@ -13,7 +13,6 @@ const DateSelector = ({date, select}) => {
       myDate = [...myDate, formattedDate]
     }
   });
-
  
   myDate.sort((a, b) => {
  

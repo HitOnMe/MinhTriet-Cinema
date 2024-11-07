@@ -10,11 +10,11 @@ export default class MovieList extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      day: [],
-      selectedDay: null,
-      selectDay: null,
-      selectedShowtimes: {},
-      film: null,
+      day: [],  // Danh sách các ngày
+      selectedDay: null,  // Ngày được chọn
+      selectDay: null,  // Ngày chọn để lọc phim
+      selectedShowtimes: {},  // Danh sách các giờ chiếu của phim
+      film: null,  // Phim hiện tại
     };
   }
 
@@ -32,15 +32,18 @@ export default class MovieList extends PureComponent {
   }
 
   componentDidUpdate(prevProps) {
+    // Kiểm tra khi props reset thay đổi
     if (prevProps.reset !== this.props.reset && this.props.reset) {
       this.setState({ selectedDay: null, selectDay: null, selectedShowtimes: {} });
       this.props.resetMovie(false);
     }
+    // Kiểm tra khi props sendData thay đổi
     if (prevProps.sendData !== this.props.sendData) {
       this.extractMovieDates();
     }
   }
 
+  // Trích xuất các ngày chiếu phim từ dữ liệu
   extractMovieDates = () => {
     const { sendData } = this.props;
     let movieDate = [];
@@ -58,6 +61,7 @@ export default class MovieList extends PureComponent {
     }
   };
 
+  // Xử lý khi chọn một ngày
   selectedDate = (date, filmId) => {
     this.setState(prevState => ({
       selectedDay: date,
@@ -68,20 +72,24 @@ export default class MovieList extends PureComponent {
       },
     }));
   };
+
+  // Xử lý ngày được chọn từ component Calendar
   selectedDay = (props) => {
     const { sendData } = this.props; // Lấy dữ liệu phim từ props
     const selectedShowtimes = {};
-  
-    sendData.forEach(film => {
-      selectedShowtimes[film.maPhim] = this.updateShowtimes(props, film.maPhim);
-    });
-  
-    this.setState({
-      selectDay: props,
-      selectedShowtimes, // Cập nhật giờ chiếu cho các phim dựa trên ngày đã chọn
-    });
+    if (sendData) {
+      sendData.forEach(film => {
+        selectedShowtimes[film.maPhim] = this.updateShowtimes(props, film.maPhim);
+      });
+    
+      this.setState({
+        selectDay: props,
+        selectedShowtimes, 
+      });
+    }
   }
 
+  // Cập nhật giờ chiếu cho ngày và phim đã chọn
   updateShowtimes = (date, filmId) => {
     const { sendData } = this.props;
     const film = sendData.find(film => film.maPhim === filmId);
@@ -93,6 +101,7 @@ export default class MovieList extends PureComponent {
     return [];
   };
 
+  // Xử lý khi nhấn vào giờ chiếu
   handleShowtimeClick = (selectedShowtime, filmId) => {
     const { sendData } = this.props;
     const film = sendData.find(f => f.maPhim === filmId);
@@ -109,18 +118,20 @@ export default class MovieList extends PureComponent {
     return null; // Trả về null nếu không tìm thấy
   };
 
+  // Hiển thị danh sách phim sau khi lọc
   renderMovie = () => {
     const { sendData } = this.props;
     if (!sendData) {
       return (
         <div className="flex items-center justify-center w-full">
           <p className="text-2xl font-semibold text-gray-600">
-            No movie data available
+            Không có dữ liệu phim
           </p>
         </div>
       );
     }
 
+    // Lọc phim theo ngày đã chọn
     const filteredMovies = this.state.selectDay
       ? sendData.filter(film =>
           film.lstLichChieuTheoPhim.some(schedule =>
