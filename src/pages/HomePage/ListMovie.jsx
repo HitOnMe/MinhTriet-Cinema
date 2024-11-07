@@ -68,7 +68,9 @@ export default function ListMovie() {
               CHI TIẾT
             </button>
           </div>
-          <p className="font-bold text-lg pt-3">{movie.tenPhim}</p>
+          <p className="font-semibold tracking-wider text-lg pt-3 text-yellow-300">
+            {movie.tenPhim}
+          </p>
         </div>
       </Col>
     ));
@@ -127,7 +129,7 @@ export default function ListMovie() {
           Phim sắp chiếu
         </button>
       </div>
-      <Carousel className="mb-10">
+      <Carousel className="mb-20">
         {moviePages.map((pageMovies, pageIndex) => (
           <div key={pageIndex}>
             <Row gutter={[16, 16]}>{renderMovies(pageMovies)}</Row>

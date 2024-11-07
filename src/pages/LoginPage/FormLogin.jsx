@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginActionService } from "../../redux/userSlice";
 import userIcon from "./user-icon.svg";
+import Swal from "sweetalert2";
 
 const FormLogin = () => {
   let navigate = useNavigate();
@@ -16,6 +17,11 @@ const FormLogin = () => {
       .then((result) => {
         let dataJson = JSON.stringify(result);
         localStorage.setItem("USER_LOGIN", dataJson);
+        Swal.fire(
+          "Đăng nhập thành công",
+          `Chào mừng bạn đã đến với chúng tôi`,
+          "success"
+        );
         navigate("/");
       })
       .catch((err) => {});

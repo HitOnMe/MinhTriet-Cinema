@@ -29,7 +29,7 @@ export default function LichChieuTheoPhim() {
       return (
         <div key={rap.maCumRap}>
           <div className="text-left w-80 text-lg">
-            <h2 className="truncate text-green-500 mb-4 font-semibold">
+            <h2 className="truncate text-yellow-400 mb-4 font-semibold">
               {rap.tenCumRap}
             </h2>
           </div>
@@ -38,7 +38,7 @@ export default function LichChieuTheoPhim() {
               return (
                 <span
                   key={index}
-                  className="p-2 border-4 font-medium border-lime-300 bg-gray-100 rounded text-center hover:cursor-pointer"
+                  className="p-2 border-4 font-medium border-yellow-400 bg-gray-100 rounded text-center hover:cursor-pointer"
                   onClick={() => {
                     navigate(`/booking/${lichChieu.maLichChieu}`);
                   }}
@@ -74,9 +74,8 @@ export default function LichChieuTheoPhim() {
     return [
       {
         key: "no-showtimes",
-
         children: (
-          <div className="text-center text-white p-4 text-lg font-semibold">
+          <div className="text-center text-white p-4 text-lg font-semibold pt-10">
             <p>
               Hiện tại không có lịch chiếu cho bộ phim này. Mong quý khách thông
               cảm vì sự cố này

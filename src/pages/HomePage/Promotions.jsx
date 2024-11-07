@@ -35,7 +35,9 @@ const sliderImageUrl = [
 const Promotions = () => {
   return (
     <div>
-      <h2 className="text-4xl font-semibold text-center">Tin khuyến mãi</h2>
+      <h2 className="text-4xl font-semibold text-center text-white">
+        Tin khuyến mãi
+      </h2>
       <Carousel
         responsive={responsive}
         autoPlay={true}

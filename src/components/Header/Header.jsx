@@ -55,7 +55,7 @@ export default function Header() {
 
   return (
     <div>
-      <div className="shadow-2xl fixed left-0 right-0 z-10 bg-white opacity-80">
+      <div className="shadow-2xl fixed left-0 right-0 z-20 bg-white">
         <div className="header container">
           <NavLink to="/" className="text-red-600 font-bold text-2xl italic">
             <img alt="" src={logo} className="max-w-16" />

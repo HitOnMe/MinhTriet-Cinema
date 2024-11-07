@@ -12,9 +12,8 @@ export default function HomePage() {
       <div className="bg-side">
         <BannerCarousel />
         <SelectMovie />
-        <div className="container bg-white">
+        <div className="container">
           <ListMovie />
-          {/* <TabMovie /> */}
           <Promotions />
         </div>
       </div>

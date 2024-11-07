@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { registerActionService } from "../../redux/userSlice";
 import userIcon from "./user-icon.svg";
 import { NavLink } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const FormRegister = () => {
   let dispatch = useDispatch();
@@ -12,10 +13,10 @@ const FormRegister = () => {
     dispatch(registerActionService(values))
       .unwrap()
       .then(() => {
-        message.success("Bạn đã đăng ký thành công!");
+        Swal.fire("Chúc mừng", "Bạn đã đăng ký thành công!", "success");
       })
       .catch((err) => {
-        message.error("Đăng ký thất bại");
+        Swal.fire("Thông báo", "Đăng ký thất bại", "error");
       });
   };
 
