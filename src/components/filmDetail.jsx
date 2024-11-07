@@ -5,7 +5,7 @@ import '../assets/scss/filmDetail.scss';
 import styled from 'styled-components';
 
 const Hero = styled.div`
-  height: 500px;
+  height: 400px;
   margin: 0;
   position: relative;
   overflow: hidden;
@@ -80,7 +80,7 @@ const Detail = React.memo(({ film }) => {
       <div className="movie-card">
         <div className="container grid grid-cols-2">
 
-          <Hero className='flex' backgroundImage={film.hinhAnh}>
+          <Hero backgroundImage={film.hinhAnh} className='flex' >
            
           </Hero>
           <div className="description">

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import '../assets/scss/calendar.scss';
 import moment from 'moment';
 
-const DateSelector = ({date, select, reset}) => {
+const DateSelector = ({date, select}) => {
   let myDate = [];
   date.map(day => {
    
