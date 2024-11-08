@@ -10,7 +10,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import DetailPage from "./pages/DetailPage/DetailPage";
 import AccountPage from "./pages/AccountPage/AccountPage";
-import Admin from "./Template/AdminTemplate/Admin";
+
 import TicketBookingLayout from "./Template/Ticket/ticket";
 
 export const history = createBrowserHistory();
@@ -34,8 +34,7 @@ function App() {
           <Route path="/ticket" element={<TicketRoom />} />
           <Route path="/MinhTriet-Cinema/Template/Ticket/ticket" element={<Ticket />} />
           
-          {/* Các route của nhánh Minh */}
-          <Route path='/admin' element={<Admin />} />
+
           <Route path='/cinema' element={<TicketRoom />} />
           <Route path="/ticket" element={<TicketBookingLayout />} />
           <Route path="*" element={<Navigate to="/" />} />

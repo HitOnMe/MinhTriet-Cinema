@@ -9,10 +9,6 @@ const UseFetchTheatre = (url) => {
 
   useEffect(() => {
     const getData = async () => {
-<<<<<<< HEAD
-      const response = await configData("GET", url);
-      setTheatre(response.data);
-=======
       try {
         const response = await configData('GET', url);
         setTheatre(response.data);
@@ -21,14 +17,15 @@ const UseFetchTheatre = (url) => {
       } finally {
         setLoading(false);  // Set loading to false once the request is complete
       }
->>>>>>> Minh
     };
 
     getData();
-<<<<<<< HEAD
+
   }, [url]);
-  return theatre;
+
+  return { theatre, loading, error };  // Return loading and error state
 };
+
 export default UseFetchTheatre;
 
 //************************************ */
@@ -69,11 +66,3 @@ export let movieService = {
     );
   },
 };
-=======
-  }, [url]); 
-
-  return { theatre, loading, error };  // Return loading and error state
-};
-
-export default UseFetchTheatre;
->>>>>>> Minh

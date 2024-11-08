@@ -1,4 +1,3 @@
-
 import React, { PureComponent } from 'react';
 import '../../src/assets/scss/detail.scss';
 import moment from 'moment';
