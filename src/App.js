@@ -9,10 +9,6 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import DetailPage from "./pages/DetailPage/DetailPage";
 
-import "./App.css";
-import { createBrowserHistory } from "history";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import TicketRoom from "./Template/Cinema/Cinema";
 import TicketBookingLayout from "./Template/Ticket/ticket";
 export const history = createBrowserHistory();
 
