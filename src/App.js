@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "./App.css";
 import { createBrowserHistory } from "history";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -10,10 +11,21 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import DetailPage from "./pages/DetailPage/DetailPage";
 import AccountPage from "./pages/AccountPage/AccountPage";
+=======
+
+import './App.css';
+import { createBrowserHistory } from 'history';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import TicketRoom from './Template/Cinema/Cinema';
+import Admin from './Template/AdminTemplate/Admin';
+import HomeTemplate from './Template/HomeTemplate/HomeTemplate';
+import TicketBookingLayout from './Template/Ticket/ticket';
+>>>>>>> Minh
 export const history = createBrowserHistory();
 
 function App() {
   return (
+<<<<<<< HEAD
     <div>
       <Spinner />
       <BrowserRouter>
@@ -36,6 +48,17 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+=======
+    <BrowserRouter>
+    <Routes>
+      <Route path='/admin' element={<Admin />} />
+      <Route path='/' element={<HomeTemplate />} />
+      <Route path='/cinema' element={<TicketRoom />} />
+      <Route path="/ticket" element={<TicketBookingLayout />} />
+    </Routes>
+  </BrowserRouter>
+
+>>>>>>> Minh
   );
 }
 

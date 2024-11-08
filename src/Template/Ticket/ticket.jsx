@@ -1,71 +1,127 @@
-/* import React, { useState } from 'react';
-import SeatBooking from './SeatBooking';
+import React, { useState, useEffect } from 'react';
+import '../../assets/scss/ticket.scss';
+import '@splidejs/splide/css';
+import MovieSlider from './MovieSlider';
+import { useLocation } from 'react-router-dom';
+import configData from '../../services/config';
 
 const TicketBookingLayout = () => {
+  const location = useLocation();
+  const maLichChieu = location.state?.maLichChieu;
+  const url = `/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`;
+
   const [selectedSeats, setSelectedSeats] = useState([]);
-  const totalPrice = selectedSeats.length * 100000; // Giả định giá vé là 100000 VNĐ
+  const [ticket, setTicket] = useState(null);
+  const [price, setPrice] = useState(0);
+  const [drinkPrice, setDrinkPrice] = useState(0);
+  const [countdown, setCountdown] = useState(300);
+  const [timer, setTimer] = useState(null); 
+
+  const handleDrinkPrice = (price) => {
+    setDrinkPrice(price);
+  };
+
+  const handleTicketPrice = (price) => {
+    setPrice((prevPrice) => prevPrice + price);
+  };
+
+  // Hàm đặt lại giá trị
+  const handleReset = () => {
+  
+    setPrice(0);
+    setDrinkPrice(null);
+    setSelectedSeats([]); 
+    setCountdown(300);
+  };
+  
+
+  // Hàm bắt đầu đếm ngược
+  const startCountdown = () => {
+    const interval = setInterval(() => {
+      setCountdown((prevCountdown) => {
+        if (prevCountdown <= 1) {
+          clearInterval(interval);
+          alert('Thời gian giữ vé đã hết. Quay lại để chọn vé mới.');
+          handleReset(); // Reset nếu hết thời gian
+          return 0;
+        }
+        return prevCountdown - 1;
+      });
+    }, 1000);
+    setTimer(interval);
+  };
+
+  // Hàm dừng đếm ngược
+  const stopCountdown = () => {
+    if (timer) {
+      clearInterval(timer);
+      setTimer(null);
+    }
+  };
+
+  useEffect(() => {
+    const fetchTicketData = async () => {
+      if (maLichChieu) {
+        const response = await configData('GET', url);
+        setTicket(response.data.content);
+        console.log(response.data.content.danhSachGhe);
+      }
+    };
+    fetchTicketData();
+  }, [maLichChieu]);
+
+  useEffect(() => {
+    if (ticket) {
+      startCountdown(); // Bắt đầu đếm ngược khi dữ liệu vé đã được tải
+    }
+    return () => stopCountdown(); // Dừng đếm ngược khi component bị hủy
+  }, [ticket]);
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center">
-      <div className="container grid grid-cols-12 gap-4">
-        <div className="col-span-8">
-          <SeatBooking selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats} />
-        </div>
-
-        <div className="col-span-4">
-          <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-            <h2 className="text-xl font-bold mb-4">Thông Tin Đặt Vé</h2>
-            <div className="mb-2">
-              <strong>Ngày Chiếu:</strong> <span>12/10/2024</span>
+    <div className="text-white min-h-screen flex items-center justify-center">
+      <div className="container gap-4">
+        <div className="flex justify-content-center align-items-center" style={{ height: '50vh' }}>
+          <div>
+            <h3 className="text-green-400 text-center">Thông tin phim</h3>
+            {ticket && (
+              <>
+                <h3 className="text-xl">{ticket.thongTinPhim.tenPhim}</h3>
+                <p>Địa điểm: {ticket.thongTinPhim.diaChi} ({ticket.tenRap})</p>
+                <p>Ngày chiếu: {ticket.thongTinPhim.ngayChieu}</p>
+              </>
+            )}
+            <hr />
+            <div className="grid grid-cols-2">
+              <span className="text-red-400">Giá đặt vé</span>
+              <div className="text-right">{price ? `${price} VND` : '0 VND'}</div>
             </div>
-            <div className="mb-2">
-              <strong>Cụm Rạp:</strong> <span>Cụm Rạp B</span>
+            <div className="grid grid-cols-2">
+              <span className="text-red-400">Bắp nước</span>
+              <div className="text-right">{drinkPrice ? `${drinkPrice} VND` : 'Chưa chọn'}</div>
             </div>
-            <div className="mb-2">
-              <strong>Ghế Đã Chọn:</strong> 
-              <span>
-                {selectedSeats.length > 0 ? selectedSeats.join(', ') : 'Chưa chọn ghế'}
-              </span>
+            <hr />
+            <div className="grid grid-cols-2">
+              <span className="text-red-400">Tổng tiền</span>
+              <div className="text-right text-success">{price ? `${price + drinkPrice} VND` : '0 VND'}</div>
             </div>
-            <div className="mb-4">
-              <strong>Tổng Tiền:</strong> <span>{totalPrice.toLocaleString()} VNĐ</span>
+            <hr />
+            <div className="grid grid-cols-2">
+              <span className="text-red-400">Thời gian giữ vé</span>
+              <div className="text-right text-success">
+                {`${Math.floor(countdown / 60)}:${String(countdown % 60).padStart(2, '0')}`}
+              </div>
             </div>
-            <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded">
-              Mua Vé
-            </button>
           </div>
         </div>
-      </div>
-    </div>
-  );
-};
-
-export default TicketBookingLayout; */
-import React, { useState } from 'react';
-import SeatBooking from './SeatBooking';
-
-const TicketBookingLayout = () => {
-  const [selectedSeats, setSelectedSeats] = useState([]);
-  const totalPrice = selectedSeats.length * 100000; // Giả định giá vé là 100000 VNĐ
-
-  return (
-    <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center">
-      <div className="container grid grid-cols-12 gap-4">
-        <div className="col-span-8">
-          <SeatBooking selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats} />
-        </div>
-
-        <div className="col-span-4">
-           <h3 className = 'textgreen-400 text-center'></h3>
-           <h3 className='text-xl'>Lật mặt 48h</h3>
-           <p>Địa điểm: BKD Star - Vincom 3/2</p>
-           <p>Ngày chiếu: 25/04/2021 - 12:05 Rạp 5</p>
-           <hr/>
-           <div className = 'gred grid-cols-2'>
-           <span className = 'text-red-400'>Ghế</span>
-           <div className ='text-right'> 0Đ </div>
-           </div>
-           
+        <div>
+          <MovieSlider 
+            selectedSeats={selectedSeats} 
+            setSelectedSeats={setSelectedSeats} 
+            seat={ticket} 
+            price={handleTicketPrice} 
+            drinkPrice={handleDrinkPrice}
+            onReset={handleReset}
+          />
         </div>
       </div>
     </div>
