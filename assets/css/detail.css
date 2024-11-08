@@ -1,291 +1,240 @@
-@charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-*, *:before, *:after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+body {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(30, 27, 38, 0.95)), to(rgba(30, 27, 38, 0.95))), url("https://wallpaperboat.com/wp-content/uploads/2019/11/cinema-20.jpg");
+  background: linear-gradient(rgba(30, 27, 38, 0.95), rgba(30, 27, 38, 0.95)), url("https://wallpaperboat.com/wp-content/uploads/2019/11/cinema-20.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: top;
 }
 
-a {
-  text-decoration: none;
-  color: #5C7FB8;
+.wrapper {
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  overflow-y: auto;
+  padding-right: 15px;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-.movie-card {
-  font: 14px/22px "Lato", Arial, sans-serif;
-  color: #A9A8A3;
-  padding: 40px 0;
-}
-
-.hero {
-  height: 342px;
-  margin: 0;
-  position: relative;
+.card {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-preferred-size: 300px;
+      flex-basis: 300px;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  height: 500px;
+  background: #fff;
+  border: 2px solid #fff;
+  -webkit-box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  -webkit-transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
   overflow: hidden;
-  z-index: 1;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.hero:before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  background: red;
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_bg.jpg");
-  z-index: -1;
-  -webkit-transform: skewY(-2.2deg);
-          transform: skewY(-2.2deg);
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-  -webkit-backface-visibility: hidden;
-}
-
-.cover {
-  position: absolute;
-  top: 160px;
-  left: 40px;
-  z-index: 2;
-}
-
-.details {
-  padding: 190px 0 0 280px;
-}
-.details .title1 {
-  color: white;
-  font-size: 44px;
-  margin-bottom: 13px;
   position: relative;
-}
-.details .title1 span {
-  position: absolute;
-  top: 3px;
-  margin-left: 12px;
-  background: #C4AF3D;
-  border-radius: 5px;
-  color: #544C21;
-  font-size: 14px;
-  padding: 0px 4px;
-}
-.details .title2 {
-  color: #C7C1BA;
-  font-size: 23px;
-  font-weight: 300;
   margin-bottom: 15px;
 }
-.details .likes {
-  margin-left: 24px;
-}
-.details .likes:before {
-  content: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/icon_like.png");
-  position: relative;
-  top: 2px;
-  padding-right: 7px;
+
+.movie-image {
+  max-width: 100%;
+  height: 170px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
-.description {
-  bottom: 0px;
-  height: 200px;
-  font-size: 16px;
-  line-height: 26px;
-  color: #B1B0AC;
+.card img {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
 }
 
-.column1 {
-  padding-left: 50px;
-  padding-top: 120px;
-  width: 220px;
-  float: left;
-  text-align: center;
-}
-
-.tag {
-  background: white;
-  border-radius: 10px;
-  padding: 3px 8px;
-  font-size: 14px;
-  margin-right: 4px;
-  line-height: 35px;
-  cursor: pointer;
-}
-
-.tag:hover {
-  background: #ddd;
-}
-
-.column2 {
-  padding-left: 41px;
-  padding-top: 30px;
-  margin-left: 20px;
-  width: 480px;
-  float: left;
-}
-
-.avatars {
-  margin-top: 23px;
-}
-.avatars img {
-  cursor: pointer;
-}
-.avatars img:hover {
-  opacity: 0.6;
-}
-.avatars a:hover {
-  text-decoration: none;
-}
-
-fieldset, label {
-  margin: 0;
-  padding: 0;
-}
-
-/****** Style Star Rating Widget *****/
-.rating {
-  border: none;
-  float: left;
-}
-
-.rating > input {
-  display: none;
-}
-
-.rating > label:before {
-  margin: 5px;
-  margin-top: 0;
-  font-size: 1em;
-  font-family: FontAwesome;
-  display: inline-block;
-  content: "\f005";
-}
-
-.rating > .half:before {
-  content: "\f089";
+.descriptions {
   position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-clip-path: circle(0% at 100% 100%);
+          clip-path: circle(0% at 100% 100%);
 }
 
-.rating > label {
-  color: #ddd;
+.card:hover .descriptions {
+  left: 0px;
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+  -webkit-clip-path: circle(75%);
+          clip-path: circle(75%);
+}
+
+.card:hover img {
+  -webkit-transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.card h1 {
+  color: #ff3838;
+  letter-spacing: 1px;
+  margin: 0px;
+}
+
+.card p {
+  line-height: 24px;
+  height: 70%;
+}
+
+.card button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 40px;
+  cursor: pointer;
+  border-style: none;
+  background-color: #ff3838;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.card button:hover {
+  -webkit-transform: scale(0.95) translateX(-5px);
+          transform: scale(0.95) translateX(-5px);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+/*  footer   */
+footer {
+  background-color: #222;
+  color: #fff;
+  font-size: 14px;
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 999;
+}
+
+footer p {
+  margin: 10px 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida  Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+footer .fa-heart {
+  color: red;
+}
+
+footer .fa-dev {
+  color: #fff;
+}
+
+footer .fa-twitter-square {
+  color: #1da0f1;
+}
+
+footer .fa-instagram {
+  color: #f0007c;
+}
+
+fotter .fa-linkedin {
+  color: #0073b1;
+}
+
+footer .fa-codepen {
+  color: #fff;
+}
+
+footer a {
+  color: #3c97bf;
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+.youtubeBtn {
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
+          transform: translatex(-50%);
+  bottom: 45px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
+}
+
+.youtubeBtn i {
+  font-size: 20px;
+  float: left;
+}
+
+.youtubeBtn a {
+  color: #ff0000;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  -webkit-animation: youtubeAnim 1000ms linear infinite;
+          animation: youtubeAnim 1000ms linear infinite;
   float: right;
 }
 
-/***** CSS Magic to Highlight Stars on Hover *****/
-.rating > input:checked ~ label,
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
-  color: #FFD700;
-} /* hover previous stars in list */
-.rating > input:checked + label:hover,
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label,
-.rating > input:checked ~ label:hover ~ label {
-  color: #FFED85;
+.youtubeBtn a:hover {
+  color: #c9110f;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  text-shadow: none;
 }
 
-a[data-tooltip] {
-  position: relative;
+.youtubeBtn i:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
-a[data-tooltip]::before,
-a[data-tooltip]::after {
-  position: absolute;
-  display: none;
-  opacity: 0.85;
-}
-
-a[data-tooltip]::before {
-  /*
-   * using data-tooltip instead of title so we 
-   * don't have the real tooltip overlapping
-   */
-  content: attr(data-tooltip);
-  background: #000;
+.youtubeBtn span {
+  font-family: "Lato";
+  font-weight: bold;
   color: #fff;
-  font-size: 13px;
-  padding: 5px;
-  border-radius: 5px;
-  /* we don't want the text to wrap */
-  white-space: nowrap;
-  text-decoration: none;
-}
-
-a[data-tooltip]::after {
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  content: "";
-}
-
-a[data-tooltip]:hover::before,
-a[data-tooltip]:hover::after {
   display: block;
+  font-size: 12px;
+  float: right;
+  line-height: 20px;
+  padding-left: 5px;
 }
 
-/** positioning **/
-/* top tooltip */
-a[data-tooltip][data-placement=top]::before {
-  bottom: 100%;
-  left: 0;
-  margin-bottom: 40px;
+@-webkit-keyframes youtubeAnim {
+  0%, 100% {
+    color: #c9110f;
+  }
+  50% {
+    color: #ff0000;
+  }
 }
 
-a[data-tooltip][data-placement=top]::after {
-  border-top-color: #000;
-  border-bottom: none;
-  bottom: 50px;
-  left: 20px;
-  margin-bottom: 4px;
+@keyframes youtubeAnim {
+  0%, 100% {
+    color: #c9110f;
+  }
+  50% {
+    color: #ff0000;
+  }
 }
-
-/* styles.css */
-.body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-.header {
-  position: fixed; /* Giữ header cố định */
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: #fff;
-  padding: 10px;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000; /* Đảm bảo header luôn nằm trên cùng */
-}
-
-.content {
-  padding-top: 60px; /* Để tránh nội dung bị che khuất bởi header */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; /* Để tạo layout flex */
-}
-
-.theatre-list {
-  width: 100%; /* Chiếm toàn bộ chiều rộng */
-  max-height: 80vh; /* Đặt chiều cao tối đa cho danh sách */
-  overflow-y: auto; /* Kích hoạt thanh cuộn dọc */
-  margin: 20px; /* Thêm khoảng cách */
-  padding: 10px; /* Thêm padding cho danh sách */
-  background-color: #f9f9f9; /* Màu nền */
-  border-radius: 5px; /* Bo góc */
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng */
-}
-
-.theatre-item {
-  padding: 10px; /* Padding cho mỗi item */
-  border-bottom: 1px solid #ddd; /* Đường phân cách giữa các item */
-}
-
-.theatre-item:last-child {
-  border-bottom: none; /* Bỏ đường phân cách cho item cuối */
-}/*# sourceMappingURL=detail.css.map */
+/* footer  *//*# sourceMappingURL=detail.css.map */
