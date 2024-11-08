@@ -31,10 +31,6 @@ function App() {
             path="/detail/:id"
             element={<HomeTemplate content={<DetailPage />} />}
           ></Route>
-          <Route path="/ticket" element={<TicketRoom />} />
-          <Route path="/MinhTriet-Cinema/Template/Ticket/ticket" element={<Ticket />} />
-          
-
           <Route path='/cinema' element={<TicketRoom />} />
           <Route path="/ticket" element={<TicketBookingLayout />} />
           <Route path="*" element={<Navigate to="/" />} />
