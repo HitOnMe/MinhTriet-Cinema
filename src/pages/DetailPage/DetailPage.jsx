@@ -61,11 +61,13 @@ export default function DetailPage() {
             />
             <div className="ml-8">
               <h1 className="text-5xl font-semibold">{detail.tenPhim}</h1>
-              <p className="text-yellow-400 text-2xl mt-2">
+              <p className="text-blue-500 font-medium text-2xl mt-4">
                 Khởi chiếu: {moment(detail.ngayKhoiChieu).format("DD-MM-YYYY")}
               </p>
               <div className="my-4">
-                <h2 className="text-4xl font-semibold mb-2">Mô tả</h2>
+                <h2 className="text-4xl font-semibold mb-2 text-yellow-500">
+                  Nội dung phim
+                </h2>
                 <p className="text-xl text-red-600 font-medium">
                   {detail.moTa}
                 </p>

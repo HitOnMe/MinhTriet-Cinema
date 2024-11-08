@@ -39,11 +39,6 @@ const FormLogin = () => {
       wrapperCol={{
         span: 24,
       }}
-      initialValues={{
-        // giá trị đăng nhập mặc định
-        taiKhoan: "mafia",
-        matKhau: "8386",
-      }}
       onFinish={onFinishNew}
       onFinishFailed={onFinishFailed}
       autoComplete="off"

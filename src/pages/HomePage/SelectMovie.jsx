@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Select, Space } from "antd";
 import { movieService } from "../../services/fetchAPI";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 export default function SelectMovie() {
   const [phim, setPhim] = useState([]); // Dữ liệu phim
@@ -72,7 +73,11 @@ export default function SelectMovie() {
     if (selectedLichChieu) {
       navigate(`/ticket/${selectedLichChieu}`);
     } else {
-      alert("Vui lòng chọn giờ chiếu để đặt vé!");
+      Swal.fire(
+        "Bạn chưa chọn suất chiếu",
+        "Vui lòng chọn suất chiếu bạn muốn",
+        "info"
+      );
     }
   };
 
