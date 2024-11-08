@@ -8,7 +8,7 @@ export default function FooterBottom() {
       <div className="w-1/6">
         <img src={zion} alt="" />
       </div>
-      <div className="w-2/3 font-bold text-sm">
+      <div className="w-2/3 font-bold text-sm text-white">
         <h2 className="mb-4">TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION</h2>
         <h3>
           Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ Chí

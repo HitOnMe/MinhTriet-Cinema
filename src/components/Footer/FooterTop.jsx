@@ -8,7 +8,7 @@ export default function FooterTop() {
   return (
     <div className="flex">
       <div className="w-1/3">
-        <h1 className="mb-6 font-bold">Tix</h1>
+        <h1 className="mb-6 font-bold text-white">Tix</h1>
         <div className="flex justify-between">
           <div>
             <h2 className="hover:text-white text-gray-300 transition-all">
@@ -29,7 +29,7 @@ export default function FooterTop() {
         </div>
       </div>
       <div className="w-1/3 px-16">
-        <h1 className="mb-6 font-bold">Đối tác</h1>
+        <h1 className="mb-6 font-bold text-white">Đối tác</h1>
         <div className="flex justify-between flex-wrap">
           <span className="w-12 mr-8 mb-8">
             <img
@@ -70,14 +70,14 @@ export default function FooterTop() {
         </div>
       </div>
       <div className="w-1/5">
-        <h1 className="mb-6 font-bold">Mobile App</h1>
+        <h1 className="mb-6 font-bold text-white">Mobile App</h1>
         <div className="flex">
           <img alt="" src={apple} className="w-12 mr-4" />
           <img alt="" src={android} className="w-12 mr-4" />
         </div>
       </div>
       <div className="w-1/5">
-        <h1 className="mb-6 font-bold">Social</h1>
+        <h1 className="mb-6 font-bold text-white">Social</h1>
         <div className="flex">
           <img src={facebook} alt="" className="w-12 mr-4" />
           <img src={threads} alt="" className="w-12 mr-4" />
