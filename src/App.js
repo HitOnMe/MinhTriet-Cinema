@@ -21,7 +21,8 @@ function App() {
           <Route path="/" element={<HomeTemplate content={<HomePage />} />} />
           <Route path="/login" element={<LoginPage />}></Route>
           <Route path="/register" element={<RegisterPage />}></Route>
-          <Route path="/account" element={<AccountPage />}></Route>
+          {/* Account gặp vấn đề về render khi đổ dữ liệu */}
+          {/* <Route path="/account" element={<AccountPage />}></Route> */}
           <Route
             path="/detail/:id"
             element={<HomeTemplate content={<DetailPage />} />}

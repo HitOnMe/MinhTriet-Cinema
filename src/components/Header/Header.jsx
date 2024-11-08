@@ -12,9 +12,7 @@ export default function Header() {
     if (user) {
       return (
         <div>
-          <NavLink to="/account">
-            <strong className="me-4 hover:cursor-pointer">{user.hoTen}</strong>
-          </NavLink>
+          <strong className="me-4">{user.hoTen}</strong>
           <button
             className="text-red-600 border-red-600 border-2 bg-white px-10 py-2 rounded-s-lg rounded-e-lg"
             onClick={handleLogout}
