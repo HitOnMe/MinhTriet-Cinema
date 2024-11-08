@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/MinhTriet-Cinema/static/css/main.d804be00.css",
-    "main.js": "/MinhTriet-Cinema/static/js/main.890a17b6.js",
+    "main.js": "/MinhTriet-Cinema/static/js/main.ff11ad87.js",
     "static/js/453.c627d1d8.chunk.js": "/MinhTriet-Cinema/static/js/453.c627d1d8.chunk.js",
     "static/media/bg-side.jpg": "/MinhTriet-Cinema/static/media/bg-side.a53c1f02d37107b89cbd.jpg",
     "static/media/bg-login.jpg": "/MinhTriet-Cinema/static/media/bg-login.24ed5e206f281b3e3dca.jpg",
@@ -27,11 +27,11 @@
     "index.html": "/MinhTriet-Cinema/index.html",
     "static/media/user-icon.svg": "/MinhTriet-Cinema/static/media/user-icon.414418c676756e631d05fddc96f6186f.svg",
     "main.d804be00.css.map": "/MinhTriet-Cinema/static/css/main.d804be00.css.map",
-    "main.890a17b6.js.map": "/MinhTriet-Cinema/static/js/main.890a17b6.js.map",
+    "main.ff11ad87.js.map": "/MinhTriet-Cinema/static/js/main.ff11ad87.js.map",
     "453.c627d1d8.chunk.js.map": "/MinhTriet-Cinema/static/js/453.c627d1d8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d804be00.css",
-    "static/js/main.890a17b6.js"
+    "static/js/main.ff11ad87.js"
   ]
 }
