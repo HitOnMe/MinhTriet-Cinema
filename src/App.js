@@ -17,7 +17,7 @@ export const history = createBrowserHistory();
 
 function App() {
   return (
-<<<<<<< HEAD
+
     <div>
       <Spinner />
       <BrowserRouter>
@@ -40,17 +40,6 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
-=======
-    <BrowserRouter>
-    <Routes>
-      <Route path='/admin' element={<Admin />} />
-      <Route path='/' element={<HomeTemplate />} />
-      <Route path='/cinema' element={<TicketRoom />} />
-      <Route path="/ticket" element={<TicketBookingLayout />} />
-    </Routes>
-  </BrowserRouter>
-
->>>>>>> Minh
   );
 }
 
