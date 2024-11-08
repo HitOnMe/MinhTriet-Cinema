@@ -143,7 +143,7 @@ export default function ListMovie() {
             navigate("/cinema");
           }}
         >
-          Xem thêm phim tại các cụm rạp
+          Bạn muốn xem nhiều phim hơn? CHECK NGAY!
         </button>
       </div>
       {openVideoId && (

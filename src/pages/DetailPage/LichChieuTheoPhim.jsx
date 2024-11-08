@@ -38,10 +38,7 @@ export default function LichChieuTheoPhim() {
               return (
                 <span
                   key={index}
-                  className="p-2 border-4 font-medium border-yellow-400 bg-gray-100 rounded text-center hover:cursor-pointer"
-                  onClick={() => {
-                    navigate(`/booking/${lichChieu.maLichChieu}`);
-                  }}
+                  className="p-2 border-4 font-medium border-yellow-400 bg-gray-100 rounded text-center"
                 >
                   {moment(lichChieu.ngayChieuGioChieu).format(
                     "DD-MM-YYYY ~ HH:mm"
