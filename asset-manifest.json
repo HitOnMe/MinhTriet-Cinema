@@ -1,15 +1,37 @@
 {
   "files": {
-    "main.css": "/MinhTriet-Cinema/static/css/main.a6886b33.css",
-    "main.js": "/MinhTriet-Cinema/static/js/main.0095d146.js",
-    "static/js/453.e6e42e86.chunk.js": "/MinhTriet-Cinema/static/js/453.e6e42e86.chunk.js",
+    "main.css": "/MinhTriet-Cinema/static/css/main.d804be00.css",
+    "main.js": "/MinhTriet-Cinema/static/js/main.890a17b6.js",
+    "static/js/453.c627d1d8.chunk.js": "/MinhTriet-Cinema/static/js/453.c627d1d8.chunk.js",
+    "static/media/bg-side.jpg": "/MinhTriet-Cinema/static/media/bg-side.a53c1f02d37107b89cbd.jpg",
+    "static/media/bg-login.jpg": "/MinhTriet-Cinema/static/media/bg-login.24ed5e206f281b3e3dca.jpg",
+    "static/media/bg-register.jpg": "/MinhTriet-Cinema/static/media/bg-register.24ed5e206f281b3e3dca.jpg",
+    "static/media/bg-app.svg": "/MinhTriet-Cinema/static/media/bg-app.419937b11d10274c1633.svg",
+    "static/media/promotion-3.jpg": "/MinhTriet-Cinema/static/media/promotion-3.b9f82acd22699654ee0f.jpg",
+    "static/media/promotion-1.png": "/MinhTriet-Cinema/static/media/promotion-1.f9addb2f8f492f40ed78.png",
+    "static/media/promotion-4.jpg": "/MinhTriet-Cinema/static/media/promotion-4.3c35e060c3abdc9a91c1.jpg",
+    "static/media/logo.png": "/MinhTriet-Cinema/static/media/logo.bda245f4ff4c81e1e2d9.png",
+    "static/media/app2.jpg": "/MinhTriet-Cinema/static/media/app2.df5518c6569b9570ae1c.jpg",
+    "static/media/app1.jpg": "/MinhTriet-Cinema/static/media/app1.3fbc933026ee58c2c3be.jpg",
+    "static/media/chung_nhan.png": "/MinhTriet-Cinema/static/media/chung_nhan.cb85045e8b81c0a8dd5f.png",
+    "static/media/app3.jpg": "/MinhTriet-Cinema/static/media/app3.8f3e2b33f06cd9498412.jpg",
+    "static/media/promotion-5.jpg": "/MinhTriet-Cinema/static/media/promotion-5.e17fcad4f16a0ba79d37.jpg",
+    "static/media/threads.png": "/MinhTriet-Cinema/static/media/threads.963e26b417914c0045b4.png",
+    "static/media/facebook.png": "/MinhTriet-Cinema/static/media/facebook.49e67d43221b6bb1aa86.png",
+    "static/media/app-store.svg": "/MinhTriet-Cinema/static/media/app-store.03a9bf5b2fdcc4733b93a9808b1ca315.svg",
+    "static/media/promotion-2.jpg": "/MinhTriet-Cinema/static/media/promotion-2.1058dd25833f4ba79df5.jpg",
+    "static/media/revicons.eot": "/MinhTriet-Cinema/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/MinhTriet-Cinema/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/google-play.svg": "/MinhTriet-Cinema/static/media/google-play.3b2a019661b8895130d868d9c4866b63.svg",
+    "static/media/revicons.woff": "/MinhTriet-Cinema/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/MinhTriet-Cinema/index.html",
-    "main.a6886b33.css.map": "/MinhTriet-Cinema/static/css/main.a6886b33.css.map",
-    "main.0095d146.js.map": "/MinhTriet-Cinema/static/js/main.0095d146.js.map",
-    "453.e6e42e86.chunk.js.map": "/MinhTriet-Cinema/static/js/453.e6e42e86.chunk.js.map"
+    "static/media/user-icon.svg": "/MinhTriet-Cinema/static/media/user-icon.414418c676756e631d05fddc96f6186f.svg",
+    "main.d804be00.css.map": "/MinhTriet-Cinema/static/css/main.d804be00.css.map",
+    "main.890a17b6.js.map": "/MinhTriet-Cinema/static/js/main.890a17b6.js.map",
+    "453.c627d1d8.chunk.js.map": "/MinhTriet-Cinema/static/js/453.c627d1d8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a6886b33.css",
-    "static/js/main.0095d146.js"
+    "static/css/main.d804be00.css",
+    "static/js/main.890a17b6.js"
   ]
 }
