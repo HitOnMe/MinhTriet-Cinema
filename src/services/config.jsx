@@ -12,7 +12,7 @@ const configData = (method, url, data) => {
     method: method,
     url: `${baseUrl}${url}`,
     data: data,
-    headers: { TokenCybersoft: token },
+    headers: { TokenCybersoft: token, Authorization: JSON.parse(localStorage.getItem("USER_LOGIN")) },
   });
 };
 
@@ -23,8 +23,7 @@ export let http = Axios.create({
   baseURL: baseUrl,
   headers: {
     TokenCybersoft: token,
-    Authorization:
-      "bearer " + JSON.parse(localStorage.getItem("USER_LOGIN"))?.accessToken,
+    Authorization: JSON.parse(localStorage.getItem("USER_LOGIN")),
   },
 });
 
