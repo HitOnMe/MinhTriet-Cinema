@@ -64,7 +64,7 @@ const TicketBookingLayout = () => {
       if (maLichChieu) {
         const response = await configData('GET', url);
         setTicket(response.data.content);
-        console.log(response.data.content.danhSachGhe);
+        console.log(response.data.content);
       }
     };
     fetchTicketData();
@@ -121,6 +121,8 @@ const TicketBookingLayout = () => {
             price={handleTicketPrice} 
             drinkPrice={handleDrinkPrice}
             onReset={handleReset}
+            maLichCHieu = {maLichChieu}
+            ticket={price}
           />
         </div>
       </div>

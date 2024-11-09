@@ -73,7 +73,7 @@ export default class MovieList extends PureComponent {
   };
 
   // Xử lý ngày được chọn từ component Calendar
-  selectedDay = (props) => {
+  daySelect = (props) => {
     const { sendData } = this.props; // Lấy dữ liệu phim từ props
     const selectedShowtimes = {};
     if (sendData) {
@@ -198,7 +198,7 @@ export default class MovieList extends PureComponent {
   render() {
     return (
       <div className="col-span-6 max-w-screen-lg mx-auto">
-        <Calendar date={this.state.day} select={this.selectedDay} reset={this.props.resetMovie} />
+        <Calendar date={this.state.day} select={this.daySelect} reset={this.props.resetMovie} />
         <div className="wrapper">{this.renderMovie()}</div>
       </div>
     );

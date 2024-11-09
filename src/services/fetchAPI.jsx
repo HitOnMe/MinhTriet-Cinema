@@ -66,3 +66,8 @@ export let movieService = {
     );
   },
 };
+export let datVe = {
+  datVe: (acc) =>{
+    http.post(`/api/QuanLyDatVe/DatVe`, acc)
+  }
+}

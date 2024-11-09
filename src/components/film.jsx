@@ -69,11 +69,10 @@ export default class MovieList extends PureComponent {
   selectedDay = (props) => {
     const { sendData } = this.props; // Lấy dữ liệu phim từ props
     const selectedShowtimes = {};
-  
-    sendData.forEach(film => {
-      selectedShowtimes[film.maPhim] = this.updateShowtimes(props, film.maPhim);
-    });
-  
+    if (sendData) {
+      sendData.forEach(film => {
+        selectedShowtimes[film.maPhim] = this.updateShowtimes(props, film.maPhim);
+      });
     this.setState({
       selectDay: props,
       selectedShowtimes, // Cập nhật giờ chiếu cho các phim dựa trên ngày đã chọn

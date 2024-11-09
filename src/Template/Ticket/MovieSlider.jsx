@@ -1,13 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Splide from '@splidejs/splide';
 import PriceTable from './drink';
 import PaymentOptions from './payment';
 import '@splidejs/splide/dist/css/splide.min.css'; // Import CSS cho Splide
 import SeatBooking from './seatBooking';
-
-const MovieSlider = ({ selectedSeats, setSelectedSeats, seat, price, drinkPrice, onReset }) => {
-  
+import configData from '../../services/config';
+const MovieSlider = ({ selectedSeats, setSelectedSeats, seat, price, drinkPrice, onReset, maLichCHieu, ticket }) => {
+  const [ghe, setGhe] = useState(null) ;
+  const [seletedSeat, setSelectedSeat] = useState([])
+  const Token = JSON.parse(localStorage.getItem("USER_LOGIN")).accessToken;
+  const url = '/api/QuanLyDatVe/DatVe';
+  const selectSeat = (ghe) => {
+    if(ghe){
+      setGhe(ghe);
+      setSelectedSeat(prevSelectedSeat => [...prevSelectedSeat, ghe]);
+    }    
+  }
   useEffect(() => {
+   
     const splide = new Splide('.splide', {
       type: 'slide',
       perPage: 1,
@@ -32,15 +42,36 @@ const MovieSlider = ({ selectedSeats, setSelectedSeats, seat, price, drinkPrice,
   // Xử lý khi nhấn nút thanh toán
   const handlePayment = () => {
     alert('Thanh toán thành công!');
-    onReset()
-  };
+    const SeatData = seletedSeat.map((ghe) => {
+      return {
+        "maLichChieu": maLichCHieu,
+        "danhSachVe": [
+          {
+            "maGhe": ghe,
+            "giaVe": ticket
+          }
+        ]
+      }
+    });
 
+      const postGhe = async() => {
+        for (const data of SeatData) {
+          try {
+            const response = await configData('POST', url, data);
+            return response.data
+          } catch(error){
+            console.error(error)
+          }
+        }
+    };
+    postGhe()
+  }
   return (
     <div className="splide">
       <div className="splide__track">
         <ul className="splide__list">
           <li className="splide__slide">
-            <SeatBooking selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats} seat={seat} price={price} />
+            <SeatBooking selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats} seat={seat} price={price} ghe = {selectSeat}/>
           </li>
           <li className="splide__slide">
             <PriceTable price={drinkPrice} />
@@ -68,5 +99,4 @@ const MovieSlider = ({ selectedSeats, setSelectedSeats, seat, price, drinkPrice,
     </div>
   );
 };
-
 export default MovieSlider;

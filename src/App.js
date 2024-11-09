@@ -20,7 +20,7 @@ function App() {
 
     <div>
       <Spinner />
-      <BrowserRouter>
+      <BrowserRouter basename="/MinhTriet-Cinema">
         <Routes>
           <Route path="/" element={<HomeTemplate content={<HomePage />} />} />
           <Route path="/login" element={<LoginPage />}></Route>

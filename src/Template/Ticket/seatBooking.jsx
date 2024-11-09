@@ -1,6 +1,7 @@
-import React from 'react';
+import React,{useState} from 'react';
 
-const SeatBooking = ({ selectedSeats, setSelectedSeats, seat, price }) => {
+const SeatBooking = ({ selectedSeats, setSelectedSeats, seat, price, ghe }) => {
+   
     let seats2D = [];
     if (seat) {
       const numCols = 16; // Tổng số cột (16)
@@ -11,11 +12,11 @@ const SeatBooking = ({ selectedSeats, setSelectedSeats, seat, price }) => {
   
     const seats = seat ? seats2D : Array.from({ length: 10 }, () => Array.from({ length: 16 }, () => false));
   
-    const handleSeatClick = (row, col) => {
+    const handleSeatClick = (row, col, userSeat) => {
       const seatId = `${row}-${col}`;
       const seat = seats[row][col]; 
-      
-      console.log(seat.giaVe)
+      ghe(userSeat)
+
       if (seat.daDat) {
         return;
       }
@@ -74,7 +75,7 @@ const SeatBooking = ({ selectedSeats, setSelectedSeats, seat, price }) => {
                   return (
                     <div
                       key={colIndex}
-                      onClick={() => handleSeatClick(rowIndex, colIndex, seat.daDat)}
+                      onClick={() => handleSeatClick(rowIndex, colIndex, seat.stt)}
                       className={`w-10 h-10 rounded ${seatClass} hover:bg-green-300 cursor-pointer relative`}
                     >
                       {/* Hiển thị tên ghế trong ô ghế */}

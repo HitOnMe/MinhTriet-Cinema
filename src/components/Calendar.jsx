@@ -8,7 +8,7 @@ const DateSelector = ({date, select}) => {
    
     const myDay = new Date(day);
           
-    const formattedDate = moment(myDay).format('DD/MM/YY');
+    const formattedDate = moment(myDay).format('DD/MM/YYYY');
     if (!myDate.includes(formattedDate)){
       myDate = [...myDate, formattedDate]
     }
